@@ -4,8 +4,9 @@ import {
   IsPhoneNumber,
   IsString,
   IsStrongPassword,
-    IsNotEmpty,
-    MinLength,
+  IsNotEmpty,
+  MinLength,
+  IsEnum,
 } from "class-validator";
 export class CreateUserDto {
   @IsString()
@@ -29,5 +30,8 @@ export class CreateUserDto {
   @IsNotEmpty()
   @MinLength(8)
   password: string;
+  @IsEnum(["admin", "user"])
+  @IsNotEmpty()
+  role: string;
 }
 

@@ -7,7 +7,7 @@ import { CreateUserDto } from "./Dto/create-user.dto";
 export class UserController {
     constructor(private readonly userService:UserService) {}
     @Post()
-    createUser(@Body(new ValidationPipe) body: CreateUserDto) {
+    createUser(@Body() body: CreateUserDto) {
         console.log("🚀 ~ UserController ~ createUser ~ body:", body)
         // return this.userService.createUser(body);
     }
